@@ -1,0 +1,23 @@
+#+TITLE: Recipe Manager Readme and Planning Doc
+
+* Overview
+Recipe Manager is an application that manages recipes and potentially your pantry
+
+* Goals
+** Core Goals
+- Manages and tracks recipes
+- Allows for tracking of pantry stock based on submitted recipes
+- Automates grocery listings 
+- Can be leveraged for budgeting or dieting
+
+** Auxillary Goals
+- Barcode integration
+  may require hosting own database, probably not affordable
+- Cross Platform
+  leverage react native front end to allow for web ui and app ui
+
+* High Level Concepts
+- Recipe Bank
+- Stock: Pantry stock that you intend to use with recipe bank
+- Cooking Handler/Helper: Some method of initiating a recipe and firing off neccessary tasks
+
