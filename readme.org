@@ -9,15 +9,32 @@ Recipe Manager is an application that manages recipes and potentially your pantr
 - Allows for tracking of pantry stock based on submitted recipes
 - Automates grocery listings 
 - Can be leveraged for budgeting or dieting
+- Calorie balancer: Submenu/mode for tracking calories based on recipes 
 
 ** Auxillary Goals
-- Barcode integration
+- Barcode integration:
   may require hosting own database, probably not affordable
-- Cross Platform
+- Cross Platform:
   leverage react native front end to allow for web ui and app ui
+- Further Automation: Automate grocery ordering or dieting/meal enabling based on scheduled meals and events
+- Workout/calorie deficit tracker
 
 * High Level Concepts
 - Recipe Bank
 - Stock: Pantry stock that you intend to use with recipe bank
-- Cooking Handler/Helper: Some method of initiating a recipe and firing off neccessary tasks
+- Cooking Handler/Helper: Some method of initiating a recipe and firing off neccessary tasks. Modularity is key for making this extensible. I am not opposed to plugin system.
+
+* Low Level Tasks
+** TODO React boilerplate
+Set up main recipe selection screen
+
+** TODO Redux state management
+Fetch MOST data, state manage local changes. Only for adding recipes do we need local state management.
+
+** TODO Node backend boilerplate
+
+** TODO Recipe Importer/Scraper
+Thinking we can just grab the Recipe JSON via some request interception assuming that is how it is formatted
+
+** TODO Research React Native translation
 
