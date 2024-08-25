@@ -24,17 +24,15 @@ Recipe Manager is an application that manages recipes and potentially your pantr
 - Stock: Pantry stock that you intend to use with recipe bank
 - Cooking Handler/Helper: Some method of initiating a recipe and firing off neccessary tasks. Modularity is key for making this extensible. I am not opposed to plugin system.
 
-* Low Level Tasks
-** TODO React boilerplate
-Set up main recipe selection screen
-
-** TODO Redux state management
-Fetch MOST data, state manage local changes. Only for adding recipes do we need local state management.
-
-** TODO Node backend boilerplate
-
-** TODO Recipe Importer/Scraper
-Thinking we can just grab the Recipe JSON via some request interception assuming that is how it is formatted
-
-** TODO Research React Native translation
+* Tasks
+** Frontend                                     :@computer:@development:
+*** TODO Create general Fresh/Preact layout                       :@planning:
+Need to decide what bits need to be islands. Fresh and deno will only send HTML to clients when possible, so deciding where we need to hydrate the client with js vs where we want to load api prior to generation is important for project structure. 
+*** TODO Design basic recipe card component
+Examine [[https://schema.org/Recipe][Recipe Schema]] and develop reusable recipe card component around it
+** Backend
+*** TODO Consider Deployment                                      :@planning:
+Try to leverage deno to deploy fully wrapped app. See what’s feasible, postgre, json storage, consider potential mobile plans.
+*** TODO Spin up basic web API implementing recipe schema 
+Use [[https://schema.org/Recipe][Recipe Schema]] to allow some application to do CRUD operations on a set of recipes
 
