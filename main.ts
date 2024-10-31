@@ -1,14 +1,16 @@
 import db from "./db.ts";
+import { Recipe } from "./types.ts";
 import fetchRecipeJson from "./utils/recipe-scraper.ts";
 
 const PORT = 2345;
 
-const funcMap = new Map<string, () => Promise<unknown>>();
+const funcMap = new Map<string, (params: any) => Promise<unknown>>();
 
-funcMap.set("/onion", async () => {
-  return await db.queryObject("SELECT id, name, quantity FROM inventory");
+funcMap.set("/get-recipe", async ({ body }) => {
+  return await fetchRecipeJson(body.url);
 });
 
+// main traffic handler, routes requests to transactions
 const trafficHandler = async (req: Request) => {
   console.log("Method:", req.method);
 
@@ -16,20 +18,20 @@ const trafficHandler = async (req: Request) => {
   console.log("Path:", url.pathname);
   console.log("Query parameters:", url.searchParams);
 
-  const myRecipe = await fetchRecipeJson(
-    `https://www.allrecipes.com/recipe/228293/curry-stand-chicken-tikka-masala-sauce/`,
-  );
-
-  console.log(myRecipe);
-
   console.log("Headers:", req.headers);
 
+  let body = {};
   if (req.body) {
-    const body = await req.text();
+    body = await req.json();
     console.log("Body:", body);
   }
 
-  return new Response("Hello, World!");
+  const toReturn = await funcMap.get(url.pathname)?.({ body });
+
+  console.log("Got Recipe Object:");
+  console.log(toReturn);
+
+  return new Response(toReturn.toString());
 };
 
 //setup

@@ -1,3 +1,4 @@
+// Defines a recipe as defined by schema.org
 export type Recipe = {
   "@context": string;
   "@type": string;
@@ -10,7 +11,6 @@ export type Recipe = {
 
 // Define the structure for referenceable ingredients
 type IngredientReference = {
-  "@type": string;
   ingredientID: string;
   name: string;
   quantity: string;
@@ -18,8 +18,6 @@ type IngredientReference = {
 
 // Define the structure for the translated recipe format (output format)
 type TranslatedRecipe = {
-  "@context": string;
-  "@type": string;
   name: string;
   recipeYield: string;
   recipeCategory: string;

@@ -1,4 +1,5 @@
 // deno-lint-ignore-file no-explicit-any
+
 // Importing deno_dom for HTML and DOM parsing
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 import { Recipe } from "../types.ts";
